@@ -1,61 +1,51 @@
-<!DOCTYPE HTML>
-<!--
-	Strata by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-  <head>
-    {% include head.html %}
-    {% include opengraph.html %}
-    {% include twittercard.html %}
-  </head>
-	<body id="top">
+---
+layout: default
+---
+<div id="main">
+  <article>
+    <header>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+    </header>
 
-		{% include header.html %}
+    <section>
+      {{ content }}
+    </section>
 
-		<!-- Main -->
-		<div id="main">
-      <article>
-        <header class="major">
-          <h2>{{ page.title }}</h2>
-          <p>
-            <i class="fa fa-calendar"></i> {{ page.date | date: "%d %B %Y" }}{% if page.categories %} on <i class="fa fa-tags"></i> {{ page.categories | array_to_sentence_string }}.{% endif %}
-            {% include readingtime.html %}
-          </p>
-        </header>
-
-        <section>
-          {{ content }}
-        </section>
-      </article>
-
-      {% include disqus.html %}
-
-      {% if page.previous.url or page.next.url %}
-      <hr />
+    <footer>
       <div class="row">
-        <article class="6u 12u$(xsmall) work-item">
-          {% if page.previous.url %}
-          <p>Previous</p>
-  				<h3><a href="{{ page.previous.url }}">{{page.previous.title}}</a></h3>
-  				<p>{{ page.previous.excerpt | strip_html }}</p>
-          {% endif %}
-  			</article>
-  			<article class="6u$ 12u$(xsmall) work-item">
-          {% if page.next.url %}
-          <p>Next</p>
-  				<h3><a href="{{ page.next.url }}">{{page.next.title}}</a></h3>
-  				<p>{{ page.next.excerpt | strip_html }}</p>
-          {% endif %}
-  			</article>
-      </div>
+      {% if page.previous %}
+        <article class="{% cycle '6u', '6u$' %} 12u(small) excerpt">
+          <header>
+            <h2><a href="{{ page.previous.url }}">{{ page.previous.title }}</a></h2>
+          </header>
+          <section>
+            {{ page.previous.excerpt }}
+          </section>
+          <footer>
+            <ul class="actions">
+              <li><a href="{{ page.previous.url }}" class="button">Read More</a></li>
+            </ul>
+          </footer>
+        </article>
       {% endif %}
 
-		</div>
-
-    {% include footer.html %}
-    {% include scripts.html %}
-
-	</body>
-</html>
+      {% if page.next %}
+        <article class="{% cycle '6u', '6u$' %} 12u(small) excerpt f-right">
+          <header>
+            <h2><a href="{{ page.next.url }}">{{ page.next.title }}</a></h2>
+          </header>
+          <section>
+            {{ page.next.excerpt | markdownify }}
+          </section>
+          <footer>
+            <ul class="actions">
+              <li><a href="{{ page.next.url }}" class="button">Read More</a></li>
+            </ul>
+          </footer>
+        </article>
+      {% endif %}
+      </div>
+    </footer>
+  </article>
+</div>
