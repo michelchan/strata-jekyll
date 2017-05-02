@@ -1,12 +1,17 @@
-title: Strata by HTML5 UP
+title: Michelle Chan
 description: >
-  **I am Strata**, a super simple
-  responsive site template freebie
-  crafted by [HTML5 UP](http://html5up.net).
+  **My name is Michelle.** Welcome to my site.
 copyright: Untitled
 sass:
   sass_dir: assets/sass
-url: http://localhost:4000
+# url: http://localhost:4000
+
+# Author details for the jekyll-seo-tag gem
+author:
+  name: Michelle Chan
+  email: michelchan421@gmail.com
+  twitter: # twitter username without the @ symbol
+
 disqus_shortname: stratajekylldemo
 facebook_username:
 twitter_username: "#"
@@ -16,7 +21,4 @@ pinterest_username:
 flickr_username:
 github_username:  "#"
 feed_icon: rss
-email: "#"
-gems: [jekyll-paginate]
-paginate_path: "/page/:num/"
-paginate: 5
+email: "michelchan421@gmail.com"
